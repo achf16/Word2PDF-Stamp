@@ -36,12 +36,12 @@ def agregar_cuño_a_pdf(pdf_entrada, pdf_salida, imagen_cuño):
     cuño_width, cuño_height = cuño.size
 
     # Redimensionar la imagen si es demasiado grande
-    max_width, max_height = 100, 100
+    max_width, max_height = 139, 50
     if cuño_width > max_width or cuño_height > max_height:
         cuño = cuño.resize((max_width, max_height))
 
-    x_cuño = width - cuño.width - 50
-    y_cuño = 50
+    x_cuño = width - cuño.width - 75
+    y_cuño = 230
 
     c.drawImage(imagen_cuño, x_cuño, y_cuño, width=cuño.width, height=cuño.height)
     c.save()
