@@ -1,5 +1,3 @@
-# Word2PDF-Stamp
-A portable Python program that automatically converts all Word documents (.docx) in a folder to PDF, adds a seal (image) to the bottom-right corner of the first page of each PDF, and saves the processed files in another folder.
 # Word2PDF-Seal
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
@@ -73,3 +71,20 @@ If you want to modify or improve the program, follow these steps:
 5. Generate a new executable (requires Windows):
    ```bash
    pyinstaller --onefile your_script.py
+
+---
+##License 
+
+This project is licensed under the MIT License . You are free to use, modify, and distribute it. 
+
+---
+##Contributions 
+
+Contributions are welcome! If you find any issues or have ideas to improve the program, open an issue or submit a pull request. 
+
+---
+#Author 
+
+Developed by Abel Chávez
+Contact: achf16@gmail.com
+GitHub: https://github.com/achf16
