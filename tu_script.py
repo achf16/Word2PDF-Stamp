@@ -1,3 +1,5 @@
+# import sys
+# print(sys.path)
 import os
 from docx2pdf import convert
 from PyPDF2 import PdfReader, PdfWriter
@@ -23,7 +25,7 @@ def agregar_cuño_a_pdf(pdf_entrada, pdf_salida, imagen_cuño):
     # Crear un archivo temporal con ReportLab
     temp_pdf = "temp.pdf"
     c = canvas.Canvas(temp_pdf, pagesize=letter)
-    width, height = letter  
+    width, height = letter
 
     # Verificar que la imagen existe y cargarla
     if not os.path.exists(imagen_cuño):
@@ -34,12 +36,12 @@ def agregar_cuño_a_pdf(pdf_entrada, pdf_salida, imagen_cuño):
     cuño_width, cuño_height = cuño.size
 
     # Redimensionar la imagen si es demasiado grande
-    max_width, max_height = 100, 100  
+    max_width, max_height = 100, 100
     if cuño_width > max_width or cuño_height > max_height:
         cuño = cuño.resize((max_width, max_height))
 
     x_cuño = width - cuño.width - 50
-    y_cuño = 50 
+    y_cuño = 50
 
     c.drawImage(imagen_cuño, x_cuño, y_cuño, width=cuño.width, height=cuño.height)
     c.save()
@@ -47,8 +49,8 @@ def agregar_cuño_a_pdf(pdf_entrada, pdf_salida, imagen_cuño):
     # Fusionar el PDF original con el cuño
     cuño_reader = PdfReader(temp_pdf)
     for i, page in enumerate(reader.pages):
-        if i == 0:  
-            page.merge_page(cuño_reader.pages[0])  
+        if i == 0:
+            page.merge_page(cuño_reader.pages[0])
         writer.add_page(page)
 
     # Guardar el PDF final
